@@ -1,0 +1,49 @@
+:host {
+    margin: 50px auto 0 auto;
+
+    .float-left, .float-right {
+        display: inline;
+    }
+    mat-card-content {
+        display: flex;
+    }
+    .rating {
+        margin-bottom: 16px;
+    }
+    .show-small {
+        margin: 0 auto;
+    }
+}
+@media (max-width: 767px){
+    :host {
+        margin: 0 16px;
+    }
+    .show-small {
+        display: block !important;
+    }    
+    .hide-small {
+        display: none !important;
+    }
+} 
+@media (min-width: 768px){
+    :host {
+        width: 75%;
+    } 
+    .show-small {
+        display: none !important;
+    }    
+    .hide-small {
+        display: block !important;
+    }
+}       
+@media (min-width: 1024px){
+    :host {
+        width: 50%;
+    }  
+}    
+@media (min-width: 1200px){
+    :host {
+        width: 50%;
+    }  
+     
+}

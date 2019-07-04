@@ -1,0 +1,51 @@
+:host {
+    width: 100%;
+    .movie-card {
+        display: inline-block;
+        margin: 16px 32px;
+    }
+    form {
+        margin: 16px 32px 0 32px;
+    }
+    mat-form-field {
+        width: 100%;
+    }
+    .search-filter {
+        width: auto;
+        margin: 0 32px;
+        .filter-genre:hover {
+            cursor: pointer;
+        }
+    }
+    .search-reset {
+        position: absolute;
+        right: 0;
+        bottom: 4px;
+        cursor: pointer;
+    }
+    .filter-reset {
+        cursor: pointer;
+    }
+    @media (max-width: 767px){
+        .movie-card {
+            width: calc(100vw - 115px);
+        }  
+    }     
+    @media (min-width: 768px){
+        .movie-card {
+            width: 35%;
+        } 
+    }    
+    @media (min-width: 1024px){
+        .movie-card {
+            width: 23%;
+        }  
+    }    
+    @media (min-width: 1200px){
+        .movie-card {
+            width: 17%;
+        }  
+         
+    }
+}
+

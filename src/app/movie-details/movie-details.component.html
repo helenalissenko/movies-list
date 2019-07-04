@@ -1,0 +1,36 @@
+<mat-card class="movie-details">
+    <img class="float-right show-small" src="assets/images/movie-covers/{{movie.img}}" />
+    <mat-card-content *ngIf="movie != undefined">
+        <div class="float-left">
+            <mat-card-header>
+                <mat-card-title>{{movie.name}}</mat-card-title>
+                <mat-card-subtitle>
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let genre of movie.genres" color="primary">{{genre}}</mat-chip>
+                    </mat-chip-list>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <p>
+                {{movie.description}}
+            </p>
+            <p>
+                length: {{movie.length}}
+            </p>
+            <div class="rating">
+                rating: {{movie.rate}}
+            </div>
+            <a [routerLink]="['/movies']" class="go-back">Go back to movies list</a>
+        </div>
+        <img class="float-right hide-small" src="assets/images/movie-covers/{{movie.img}}" />
+    </mat-card-content>
+    <mat-card-content *ngIf="movie === undefined">
+        <mat-card-header>
+            <mat-card-title>
+                404. Uh-oh, looks like you are lost
+            </mat-card-title>
+            <mat-card-subtitle>
+                Click <a href="/movies">here</a> to go to home page.
+            </mat-card-subtitle>
+        </mat-card-header>
+    </mat-card-content>
+</mat-card>

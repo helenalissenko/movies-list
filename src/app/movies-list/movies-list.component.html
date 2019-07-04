@@ -1,0 +1,31 @@
+<form class="search-form">
+    <mat-form-field class="search-full-width">
+        <input matInput placeholder="Search for movie by name" [value]="enteredTerm"
+            (input)="search($event.target.value)">
+        <mat-icon *ngIf="enteredTerm.length > 0" (click)="emptySearch()" class="search-reset">close</mat-icon>
+    </mat-form-field>
+</form>
+<div class="search-filter">
+    <mat-chip-list>
+        <mat-chip *ngIf="selectedGenre.length > 0" (click)="resetFilter()" class="filter-reset">
+            <mat-icon>close</mat-icon> Reset filter
+        </mat-chip>
+        <mat-chip *ngFor="let genre of genres" color="accent" class="filter-genre" selectable
+            [selected]="genre === selectedGenre" (click)="filterByGenre(genre)">
+            {{genre}}
+        </mat-chip>
+    </mat-chip-list>
+</div>
+<mat-card class="movie-card" *ngFor="let movie of moviesList">
+    <img mat-card-image src="assets/images/movie-covers/{{movie.img}}" />
+    <mat-card-header>
+        <mat-card-title>
+            <a [routerLink]="['movie']" (click)="navigate(movie.id)">{{movie.name}}</a>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <mat-chip-list>
+                <mat-chip *ngFor="let genre of movie.genres" color="primary">{{genre}}</mat-chip>
+            </mat-chip-list>
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card>
